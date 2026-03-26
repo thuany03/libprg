@@ -3,6 +3,7 @@
 //
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct pilha {
@@ -48,6 +49,14 @@ int desempilhar(pilha_t* pilha){
 
 int tamanho(pilha_t* pilha){
     return pilha->topo+1;
+}
+
+int elementos(pilha_t* pilha) {
+    for (int i = 0; i <= pilha->topo; i++) {
+        printf("%d\n", pilha->elementos[i]);
+    }
+
+    return 0;
 }
 
 int topo(pilha_t* pilha)
