@@ -17,10 +17,13 @@ int elementos(pilha_t* pilha);
 typedef struct fila fila_t;
 fila_t* criar_fila(int capacidade);
 int enfileirar(fila_t* fila, int valor);
-
-bool vazia (fila_t* fila);
+int desenfileirar(fila_t* fila);
+int inicio(fila_t* fila);
+int fim(fila_t* fila);
+bool vazia_f (fila_t* fila);
 bool cheia (fila_t* fila);
 int destruir_fila(fila_t* fila);
+int tamanho_f(fila_t* fila);
 
 
 #endif

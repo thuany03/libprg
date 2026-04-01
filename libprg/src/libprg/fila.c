@@ -1,6 +1,3 @@
-//
-// Created by aluno on 26/03/2026.
-//
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -33,12 +30,25 @@ int enfileirar(fila_t* fila, int valor) {
 
     return 0;
 }
-// desenfileirar
-// inicio
-// fim
 
-bool vazia (fila_t* fila) {
+bool vazia_f (fila_t* fila) {
     return fila->tamanho == 0;
+}
+
+int desenfileirar(fila_t* fila)
+{
+    if (vazia_f(fila)) exit(EXIT_FAILURE);
+    int valor = fila->elementos[fila->inicio];
+    fila->inicio = (fila->inicio + 1) % fila->capacidade;
+    fila->tamanho--;
+    fila->fim = (fila->fim - 1) % fila->capacidade;
+    return valor;
+}
+int inicio(fila_t* fila){
+    return fila->inicio;
+}
+int fim(fila_t* fila){
+   return fila->elementos[(fila->fim - 1 + fila->capacidade) % fila->capacidade];
 }
 
 bool cheia (fila_t* fila) {
@@ -49,4 +59,9 @@ int destruir_fila(fila_t* fila) {
     free(fila->elementos);
     free(fila);
     return 0;
+}
+
+int tamanho_f(fila_t* fila)
+{
+    return fila->tamanho;
 }
