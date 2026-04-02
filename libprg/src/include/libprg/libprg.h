@@ -27,5 +27,9 @@ int tamanho_f(fila_t* fila);
 int elementos_f(fila_t* fila, int n);
 int posicao_inicio_f(fila_t* fila);
 
+//LISTA NÃO ORDENADA
+typedef struct lista_linear lista_linear_t;
+lista_linear_t* criar_lista_linear( int capacidade, bool ord);
+
 
 #endif
