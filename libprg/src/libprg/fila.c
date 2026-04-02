@@ -41,12 +41,13 @@ int desenfileirar(fila_t* fila)
     int valor = fila->elementos[fila->inicio];
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
     fila->tamanho--;
-    fila->fim = (fila->fim - 1) % fila->capacidade;
     return valor;
 }
+
 int inicio(fila_t* fila){
-    return fila->inicio;
+    return fila->elementos[(fila->inicio)];
 }
+
 int fim(fila_t* fila){
    return fila->elementos[(fila->fim - 1 + fila->capacidade) % fila->capacidade];
 }
@@ -64,4 +65,12 @@ int destruir_fila(fila_t* fila) {
 int tamanho_f(fila_t* fila)
 {
     return fila->tamanho;
+}
+
+int elementos_f(fila_t* fila, int n) {
+    return fila->elementos[n];
+}
+
+int posicao_inicio_f(fila_t* fila){
+    return fila->inicio;
 }

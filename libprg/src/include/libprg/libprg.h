@@ -24,6 +24,8 @@ bool vazia_f (fila_t* fila);
 bool cheia (fila_t* fila);
 int destruir_fila(fila_t* fila);
 int tamanho_f(fila_t* fila);
+int elementos_f(fila_t* fila, int n);
+int posicao_inicio_f(fila_t* fila);
 
 
 #endif
