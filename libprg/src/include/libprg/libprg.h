@@ -29,7 +29,7 @@ int posicao_inicio_f(fila_t* fila);
 
 //LISTA NÃO ORDENADA
 typedef struct lista_linear lista_linear_t;
-lista_linear_t* criar_lista_linear( int capacidade, bool ord);
+lista_linear_t* criar_lista_l( int capacidade, bool ord);
 
 
 #endif
