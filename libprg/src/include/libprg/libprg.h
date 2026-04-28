@@ -27,9 +27,14 @@ int tamanho_f(fila_t* fila);
 int elementos_f(fila_t* fila, int n);
 int posicao_inicio_f(fila_t* fila);
 
-//LISTA NÃO ORDENADA
+//LISTA LINEAR
 typedef struct lista_linear lista_linear_t;
 lista_linear_t* criar_lista_l( int capacidade, bool ord);
+
+//LISTA ENCADEADA
+typedef struct no no_t;
+no_t* criar_lista_encadeada(int valor);
+void inserir_encadeada(no_t** inicio, int valor);
 
 
 #endif
