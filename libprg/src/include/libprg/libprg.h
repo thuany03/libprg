@@ -35,6 +35,14 @@ lista_linear_t* criar_lista_l( int capacidade, bool ord);
 typedef struct no no_t;
 no_t* criar_lista_encadeada(int valor);
 void inserir_encadeada(no_t** inicio, int valor);
+bool remover_encadeada(no_t** inicio, int valor);
+no_t* buscar_encadeada(no_t** inicio, int valor);
+void destruir_encadeada(no_t** inicio);
+
+//LISTA ENCADEADA DUPLA
+typedef struct nod nod_t;
+nod_t* criar_lista_encadeada_dupla(int valor);
+void inserir_encadeada_dupla(nod_t** inicio, int valor);
 
 
 #endif
