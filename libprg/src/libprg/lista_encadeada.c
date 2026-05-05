@@ -7,27 +7,39 @@ typedef struct no {
     int dado;
 } no_t;
 
-no_t* criar_lista_encadeada(int valor){
+typedef struct lista_encadeada {
+    no_t* inicio;
+    bool ordenada;
+}lista_encadeada_t;
+
+no_t* criar_no(int valor){
     no_t* no = malloc(sizeof(no_t));
     no->dado = valor;
     no->proximo = NULL;
     return no;
 }
 
-void inserir_encadeada(no_t** inicio, int valor) {
-    no_t* novo = criar_lista_encadeada(valor);
-    novo->proximo = *inicio;
-    *inicio = novo;
-} //para chamar a função: inserir_encadeada(&lista, valor)
+lista_encadeada_t* criar_lista_encadeada(bool ordenada) {
+    lista_encadeada_t* lista = malloc(sizeof(lista_encadeada_t));
+    lista->inicio = NULL;
+    lista->ordenada = ordenada;
+    return lista;
+}
 
-bool remover_encadeada(no_t** inicio, int valor){
-    no_t* atual = *inicio;
+void inserir_encadeada(lista_encadeada_t* lista, int valor) {
+    no_t* novo = criar_no(valor);
+    novo->proximo = lista->inicio;
+    lista->inicio = novo;
+}
+
+bool remover_encadeada(lista_encadeada_t* lista, int valor){
+    no_t* atual = lista->inicio;
     no_t* anterior = NULL;
 
     while (atual != NULL) {
         if (atual->dado == valor) {
             if (anterior == NULL) {
-                *inicio = atual->proximo;
+                lista->inicio = atual->proximo;
             } else {
                 anterior->proximo = atual->proximo;
             }
@@ -37,26 +49,26 @@ bool remover_encadeada(no_t** inicio, int valor){
         anterior = atual;
         atual = atual->proximo;
     }
-    buscar_encadeada(inicio, valor);
+    return false;
 }
 
-no_t* buscar_encadeada(no_t** inicio, int valor) {
-    no_t* atual = *inicio;
+no_t* buscar_encadeada(lista_encadeada_t* lista, int valor) {
+    no_t* atual = lista->inicio;
 
     while(atual != NULL) {
         if ( atual->dado == valor) return atual;
         atual = atual->proximo;
     }
-
     return NULL;
 }
 
-void destruir_encadeada(no_t** inicio) {
-    no_t* atual = *inicio;
+void destruir_encadeada(lista_encadeada_t* lista) {
+    no_t* atual = lista->inicio;
 
     while(atual != NULL) {
         no_t* proximo = atual->proximo;
         free(atual);
         atual = proximo;
     }
+    free(lista);
 }
