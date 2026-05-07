@@ -49,5 +49,8 @@ bool remover_encadeada_dupla(nod_t** inicio, int valor);
 nod_t* buscar_encadeada_dupla(nod_t** inicio, int valor);
 void destruir_encadeada_dupla(nod_t** inicio);
 
+//ALGORITMOS DE ORDENAÇÃO
+int bubble_sort(int* vetor, int tamanho);
+
 
 #endif
