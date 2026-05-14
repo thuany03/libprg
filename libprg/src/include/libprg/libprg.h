@@ -52,5 +52,10 @@ void destruir_encadeada_dupla(nod_t** inicio);
 //ALGORITMOS DE ORDENAÇÃO
 int bubble_sort(int* vetor, int tamanho);
 
+//TABELA HASH (DE DISPERSÃO)
+typedef struct noh noh_t;
+typedef struct dicionario dicionario_t;
+dicionario_t* criar_dicionario(int m);
+int inserir_hash(dicionario_t* d, int valor, char* chave);
 
 #endif
